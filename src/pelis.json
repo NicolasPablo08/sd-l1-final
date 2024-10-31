@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Rapido y Furioso",
+    "tags": ["accion", "aventura", "autos"]
+  },
+  {
+    "id": 2,
+    "title": "john Wich",
+    "tags": ["accion", "Thriller"]
+  },
+  {
+    "id": 3,
+    "title": "Mi Villano Favorito",
+    "tags": ["animacion", "aventura", "comedia"]
+  },
+  {
+    "id": 5,
+    "title": "holita",
+    "tags": ["saludos"]
+  }
+]
