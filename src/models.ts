@@ -1,12 +1,6 @@
 import * as jsonfile from "jsonfile";
-// El siguiente import no se usa pero es necesario
-import "./pelis.json";
-import * as includes from "lodash";
-// de esta forma Typescript se entera que tiene que incluir
-// el .json y pasarlo a la carpeta /dist
-// si no, solo usandolo desde la libreria jsonfile, no se dá cuenta
+import "./pelis.json"
 
-// no modificar estas propiedades, agregar todas las que quieras
 type SearchOptions = {
   title?: string;
   tag?: string;
@@ -26,20 +20,6 @@ class PelisCollection {
     return this.data;
   }
 
-  // async add(peli: Peli): Promise<boolean> {
-  //   const promesaUno = this.getById(peli.id).then((peliExistente) => {
-  //     if (peliExistente) {
-  //       return false;
-  //     } else {
-  //       this.data.push(peli);
-  //       const promesaDos = jsonfile.writeFile("./pelis.json", this.data);
-  //       return promesaDos.then(() => {
-  //         return true;
-  //       });
-  //     }
-  //   });
-  //   return promesaUno;
-  // }
   async add(peli: Peli): Promise<boolean> {
     const peliExistente = await this.getById(peli.id);
     if (peliExistente) {
@@ -57,16 +37,15 @@ class PelisCollection {
   async search(options: SearchOptions): Promise<Peli[]> {
     const lista = await this.getAll();
     const listaFiltrada = lista.filter((p) => {
-      let esteVa = false;
-      if (options.tag) {
+      if (options.tag && options.title){
+        const coincideTitle = p.title.includes(options.title); 
+        const coincideTag = p.tags.includes(options.tag);
+        return coincideTitle && coincideTag;
+      }else if (options.tag) {
         return p.tags.includes(options.tag);
-        esteVa = true;
-      }
-      if (options.title) {
+      } else if (options.title) {
         return p.title.includes(options.title);
-        esteVa = true;
       }
-      return esteVa;
     });
     return listaFiltrada;
   }

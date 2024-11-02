@@ -13,16 +13,7 @@ class PelisController {
   constructor() {
     this.coll = new PelisCollection();
   }
-  // async get(options?: Options): Promise<any> {
-  //   if (options?.id) {
-  //     const peli = await this.coll.getById(options.id);
-  //     return peli || null; // Retornar null si no se encuentra la película
-  //   } else if (options?.search) {
-  //     return this.coll.search(options.search); // Retornar el resultado de la búsqueda
-  //   }
-  //   return this.coll.getAll(); // Retornar todas las películas
-  // }
-
+  
   get(options?: Options): Promise<any> {
     if (options?.id) {
       return this.coll.getById(options.id);
