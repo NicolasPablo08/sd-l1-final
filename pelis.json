@@ -1,0 +1,7 @@
+[
+  { "id": 1, "title": "Rapido y Furioso", "tags": ["accion", "aventura", "autos"] },
+  { "id": 2, "title": "john Wich", "tags": ["accion", "Thriller"] },
+  { "id": 3, "title": "Mi Villano Favorito", "tags": ["animacion", "aventura", "comedia"] },
+  { "id": 4, "title": "holita", "tags": ["saludos"] },
+  { "id": 4411, "title": "Título de la nueva peli", "tags": ["accion", "classic"] }
+]
